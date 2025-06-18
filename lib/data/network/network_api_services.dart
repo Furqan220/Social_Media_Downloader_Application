@@ -62,6 +62,7 @@ class NetworkApiService extends BaseApiServices {
     }
     return responseJson;
   }
+  
 
   // @override
   // Future getPatchApiResponse(String url, dynamic data,

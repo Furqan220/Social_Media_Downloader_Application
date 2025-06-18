@@ -2,6 +2,7 @@ import 'package:f_tube/config/app_url.dart';
 import 'package:f_tube/data/network/base_api_services.dart';
 import 'package:f_tube/data/network/network_api_services.dart';
 import 'package:f_tube/main.dart';
+import 'package:f_tube/model/youtube_video_info_model.dart';
 import 'package:f_tube/utils/global.dart';
 
 class YoutubeDownloaderRepository {
@@ -11,7 +12,7 @@ class YoutubeDownloaderRepository {
     try {
       final response = await apiServices
           .getPostApiResponse(AppUrl.youtubeVideoDetails, {'url': url});
-      return response['data'];
+      return YoutubeVideoInfo.fromJson(response);
     } on Exception catch (e) {
       G.Log(e);
       rethrow;

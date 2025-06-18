@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:f_tube/config/app_url.dart';
 import 'package:f_tube/config/basic_exports.dart';
+import 'package:f_tube/data/network/file_downloader_services.dart';
 import 'package:f_tube/data/network/network_api_services.dart';
 import 'package:f_tube/repositories/youtube_downloader_repository.dart';
 import 'package:get_it/get_it.dart';
@@ -38,6 +39,7 @@ void serviceLocator() {
       ),
     ),
   );
+  getIt.registerLazySingleton<FileDownload>(() => FileDownload());
   getIt.registerLazySingleton<NetworkApiService>(() => NetworkApiService());
   getIt.registerLazySingleton<YoutubeDownloaderRepository>(
       () => YoutubeDownloaderRepository());
